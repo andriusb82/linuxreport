@@ -5,8 +5,8 @@ from typing import List, Type
 from steps.base import ReportStep
 from steps.cpu_memory import CpuMemoryStep
 from steps.root_free_space import RootFreeSpaceStep
-from steps.users_logged_in import UsersLoggedInStep
-
+from steps.user_logged_in import UsersLoggedInStep
+from steps.linux_updates import LinuxUpdatesStep
 
 class StepRegistry:
     def __init__(self) -> None:
@@ -14,6 +14,7 @@ class StepRegistry:
             UsersLoggedInStep,
             RootFreeSpaceStep,
             CpuMemoryStep,
+            LinuxUpdatesStep,
         ]
 
     def build_all_steps(self) -> List[ReportStep]:
