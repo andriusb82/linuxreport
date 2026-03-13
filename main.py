@@ -99,6 +99,7 @@ def main() -> int:
 
         step_results = []
         for step in steps_to_run:
+            print("running step")
             result = step.run(connection)
             step_results.append(result)
 
