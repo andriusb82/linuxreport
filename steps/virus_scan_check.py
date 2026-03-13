@@ -7,6 +7,27 @@ class VirusScanCheckStep(ReportStep):
     def command(self) -> str:
         return r"""
 sh -c '
+SESSION_NAME="clamav_scan_session"
+
+if ! command -v screen >/dev/null 2>&1; then
+    echo "SCREEN_BEGIN"
+    echo "screen:not_installed"
+    echo "SCREEN_END"
+    exit 0
+fi
+
+echo "SCREEN_BEGIN"
+
+if screen -list | grep -q "$SESSION_NAME"; then
+    echo "screen:already_running"
+    echo "SCREEN_END"
+    exit 0
+fi
+
+echo "screen:starting_session"
+
+screen -dmS "$SESSION_NAME" bash -c '"'"'
+
 echo "OS_RELEASE_BEGIN"
 cat /etc/os-release 2>/dev/null
 echo "OS_RELEASE_END"
@@ -102,6 +123,11 @@ else
     echo "clamscan not installed, scan skipped."
 fi
 echo "SCAN_END"
+
+'"'"' > /tmp/clamav_screen_scan.log 2>&1
+
+echo "screen:started"
+echo "SCREEN_END"
 '
 """
 
