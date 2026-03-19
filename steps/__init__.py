@@ -10,6 +10,9 @@ from steps.lynis_audit_check import LynisAuditCheckStep
 from steps.open_ports_check import OpenPortsCheckStep
 from steps.virus_scan_check import VirusScanCheckStep
 from steps.login_users_check import LoginUsersCheckStep
+from steps.rkhunt_check_step import RkhunterCheckStep
+from steps.chkroot_check_step import ChkrootCheckStep
+
 
 __all__ = [
     "UsersLoggedInStep",
@@ -24,4 +27,6 @@ __all__ = [
     "OpenPortsCheckStep",
     "VirusScanCheckStep",
     "LoginUsersCheckStep",
+    "RkhunterCheckStep",
+    "ChkrootCheckStep",
 ]
