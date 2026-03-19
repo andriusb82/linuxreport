@@ -14,7 +14,7 @@ from steps.open_ports_check import OpenPortsCheckStep
 from steps.virus_scan_check import VirusScanCheckStep
 from steps.login_users_check import LoginUsersCheckStep
 from steps.rkhunt_check_step import RkhunterCheckStep
-from steps.chkroot_check_step import ChkrootCheckStep
+from steps.chkroot_check_step import ChkrootkitCheckStep
 
 class StepRegistry:
     def __init__(self) -> None:
@@ -30,7 +30,7 @@ class StepRegistry:
             VirusScanCheckStep,
             LoginUsersCheckStep,
             RkhunterCheckStep,
-            ChkrootCheckStep,
+            ChkrootkitCheckStep,
         ]
 
     def build_all_steps(self) -> List[ReportStep]:
