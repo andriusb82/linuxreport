@@ -21,16 +21,17 @@ class StepRegistry:
         self._step_classes: List[Type[ReportStep]] = [
             UsersLoggedInStep,
             RootFreeSpaceStep,
-            CpuMemoryStep,
-            #LinuxUpdatesStep,
+            CpuMemoryStep,                        
             CronJobsCheckStep,
+            Fail2BanCheckStep,
+            ChkrootkitCheckStep,
+            RkhunterCheckStep,  
             FirewallCheckStep,            
             LynisAuditCheckStep,
-            OpenPortsCheckStep,
+            OpenPortsCheckStep,            
+            LoginUsersCheckStep,                      
+            #LinuxUpdatesStep,
             VirusScanCheckStep,
-            LoginUsersCheckStep,
-            RkhunterCheckStep,
-            ChkrootkitCheckStep,
         ]
 
     def build_all_steps(self) -> List[ReportStep]:
